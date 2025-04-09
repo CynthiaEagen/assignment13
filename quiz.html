@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    <link href="styles.css" rel="stylesheet">
+    <title>Quiz</title>
+</head>
+<body>
+    <div id="score" class="position-absolute top-0 end-0">
+        <p>Score</p>
+    </div>
+    <div id="buttonContainer" class="d-flex justify-content-center">
+        <button id="beginnerButton" type="button" class="btn btn-primary" value="0">Beginner</button>            
+        <button id="intermediateButton" type="button" class="btn btn-secondary" value="1">Intermediate</button>        
+        <button id="advancedButton" type="button" class="btn btn-success" value="2">Advanced</button>        
+        <button id="tryAgainButton" type="button" class="btn btn-danger">Try Again</button>    
+    </div>
+    <main>
+        <div id="quizContainer" class="d-flex justify-content-center">
+            <div id="questionContainer">
+                <p id="question">Question</p>
+            </div>
+            <input type="text" id="answer" name="answer"/>
+            <button id="submitButton" class="btn btn-dark">Submit</button>
+        </div>
+        <div id="dialogueBox" class="d-flex justify-content-center">
+            <p id="dialogue">Dialogue</p>
+        </div>
+    </main>    
+</body>
+</html>

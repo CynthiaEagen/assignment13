@@ -1,0 +1,9 @@
+- three buttons for options
+- a quiz view
+- 10 questions
+- random questions
+	- two random operands
+	- one random operator
+- on submit, tell the user correct or incorrect
+- top right corner, keep track of correct questions
+- when all questions answered, show score, show try again button
