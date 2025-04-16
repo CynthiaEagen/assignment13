@@ -47,7 +47,13 @@ function generateQuestion (range){
     let num2 = Math.floor(Math.random() * (range[1] - range[0])) + range[0]
     let op = operators[Math.floor(Math.random() * (4))]
     answer = op.method(num1, num2)
-    return String(num1 + op.sign + num2)
+    if (num1 < 0) {
+        num1 = "(" + num1 + ")"
+    }
+    if (num2 < 0) {
+        num2 = "(" + num2 + ")"
+    }
+    return String(num1 + " " + op.sign + " " + num2)
 }
 
 function submitHandler() {
