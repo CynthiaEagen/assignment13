@@ -1,0 +1,14 @@
+.header-button {
+    margin: 15px;
+    padding: 15px 30px;
+}
+#score {
+    font-size: 3em;
+    margin-right: 20px;
+}
+#question {
+    font-size: 3em;
+}
+#dialogue {
+    font-size: 1.5em;
+}
