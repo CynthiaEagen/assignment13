@@ -85,6 +85,7 @@ beginnerButton.addEventListener("click", setDifficulty)
 intermediateButton.addEventListener("click", setDifficulty)
 advancedButton.addEventListener("click", setDifficulty)
 submitButton.addEventListener("click", submitHandler)
+tryAgainButton.addEventListener("click", resetGameState)
 
 
 function resetGameState() {
