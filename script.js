@@ -85,3 +85,21 @@ beginnerButton.addEventListener("click", setDifficulty)
 intermediateButton.addEventListener("click", setDifficulty)
 advancedButton.addEventListener("click", setDifficulty)
 submitButton.addEventListener("click", submitHandler)
+
+
+function resetGameState() {
+    beginnerButton.disabled = false
+    intermediateButton.disabled = false
+    advancedButton.disabled = false
+    tryAgainButton.disabled = true
+    submitButton.disabled = true
+    inputBox.value = ""
+    question.innerHTML = ""
+    dialogue.innerHTML = ""
+    scoreDisplay.innerText = "/10"
+    score = 0
+    round = 1
+    difficulty = ""
+}
+
+window.onload = resetGameState
