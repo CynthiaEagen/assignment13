@@ -29,11 +29,13 @@ const operators = [{
 ]
 
 function enterQuizMode() {
+    resetGameState()
     beginnerButton.disabled = true
     intermediateButton.disabled = true
     advancedButton.disabled = true
     tryAgainButton.disabled = false
     submitButton.disabled = false
+    dialogue.innerHTML = ""
     quizHandler()
 }
 
@@ -58,7 +60,12 @@ function generateQuestion (range){
 
 function submitHandler() {
     if (round > 9) {
-        // present the end state here
+        dialogue.innerHTML = "Quiz Complete! Your final score was " + score + "/10"
+        beginnerButton.disabled = false
+        intermediateButton.disabled = false
+        advancedButton.disabled = false
+        tryAgainButton.disabled = false
+        submitButton.disabled = true
         console.log("end reached")
         return
     }
@@ -96,11 +103,10 @@ function resetGameState() {
     submitButton.disabled = true
     inputBox.value = ""
     question.innerHTML = ""
-    dialogue.innerHTML = ""
+    dialogue.innerHTML = "Select a difficulty"
     scoreDisplay.innerText = "/10"
     score = 0
     round = 1
-    difficulty = ""
 }
 
 window.onload = resetGameState
