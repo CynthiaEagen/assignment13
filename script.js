@@ -92,7 +92,16 @@ beginnerButton.addEventListener("click", setDifficulty)
 intermediateButton.addEventListener("click", setDifficulty)
 advancedButton.addEventListener("click", setDifficulty)
 submitButton.addEventListener("click", submitHandler)
-tryAgainButton.addEventListener("click", resetGameState)
+
+tryAgainButton.addEventListener("click", function () {
+    dialogue.innerHTML = "Trying again..."
+    
+    // delay resetting the game by one second
+    setTimeout(function () {
+        enterQuizMode()
+    }, 1000)
+})
+
 
 
 function resetGameState() {
