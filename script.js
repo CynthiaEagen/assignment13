@@ -6,6 +6,7 @@ const intermediateButton = document.getElementById("intermediateButton")
 const advancedButton = document.getElementById("advancedButton")
 const tryAgainButton = document.getElementById("tryAgainButton")
 const submitButton = document.getElementById("submitButton")
+const nextButton = document.getElementById('nextButton')
 const inputBox = document.getElementById('answer')
 const dialogue = document.getElementById('dialogue')
 const scoreDisplay = document.getElementById('score')
@@ -59,16 +60,6 @@ function generateQuestion (range){
 }
 
 function submitHandler() {
-    if (round > 9) {
-        dialogue.innerHTML = "Quiz Complete! Your final score was " + score + "/10"
-        beginnerButton.disabled = false
-        intermediateButton.disabled = false
-        advancedButton.disabled = false
-        tryAgainButton.disabled = false
-        submitButton.disabled = true
-        console.log("end reached")
-        return
-    }
     dialogue.innerHTML = ""
     let input = parseFloat(inputBox.value)
     if (isNaN(input)) {
@@ -78,7 +69,30 @@ function submitHandler() {
     if (input === answer) {
         score++
         scoreDisplay.innerText = score + "/10"
+        dialogue.innerHTML = "Correct!"
+    } else {
+        dialogue.innerHTML = "Incorrect!<br>Answer: " + answer
     }
+    submitButton.disabled = true
+    nextButton.disabled = false
+}
+
+function nextHandler() {
+    if (round > 9) {
+        dialogue.innerHTML = "Quiz Complete! Your final score was " + score + "/10"
+        beginnerButton.disabled = false
+        intermediateButton.disabled = false
+        advancedButton.disabled = false
+        tryAgainButton.disabled = false
+        submitButton.disabled = true
+        nextButton.disabled = true
+        console.log("end reached")
+        return
+    }
+    submitButton.disabled = false
+    nextButton.disabled = true
+    dialogue.innerHTML = ''
+    inputBox.value = ''
     round++
     quizHandler()
 }
@@ -92,6 +106,7 @@ beginnerButton.addEventListener("click", setDifficulty)
 intermediateButton.addEventListener("click", setDifficulty)
 advancedButton.addEventListener("click", setDifficulty)
 submitButton.addEventListener("click", submitHandler)
+nextButton.addEventListener('click', nextHandler)
 
 tryAgainButton.addEventListener("click", function () {
     dialogue.innerHTML = "Trying again..."
@@ -110,6 +125,7 @@ function resetGameState() {
     advancedButton.disabled = false
     tryAgainButton.disabled = true
     submitButton.disabled = true
+    nextButton.disabled = true
     inputBox.value = ""
     question.innerHTML = ""
     dialogue.innerHTML = "Select a difficulty"
